@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +27,14 @@ public class LifeCycleServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		System.out.println("doGet() 메서드 호출");
+
+		// servlet 파라미터 가져오기
+		ServletConfig config = getServletConfig();
+		String servletParam = config.getInitParameter("servlet-param");
+		System.out.println("서블릿 초기화 파라메터 : " + servletParam);
+
 	}
 
 	@Override
