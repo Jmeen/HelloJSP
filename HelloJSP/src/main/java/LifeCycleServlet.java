@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,12 @@ public class LifeCycleServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		System.out.println("init() 메서드 호출");
+		ServletContext context = getServletContext();
+		// 컨텍스트 파라미터 받아오기
+		String dbuser = context.getInitParameter("dbuser");
+		String dbpass = context.getInitParameter("dbpass");
+		System.out.println("컨텍스트 파라미터 dbuser : " + dbuser);
+		System.out.println("컨텍스트 파라미터 dbpass : " + dbpass);
 	}
 
 	@Override
