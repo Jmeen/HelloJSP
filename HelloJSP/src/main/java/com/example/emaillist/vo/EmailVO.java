@@ -6,17 +6,20 @@ public class EmailVO {
 
 	// 필드
 	private Long no;
-	private String last_name;
-	private String first_name;
+	private String lastname;
+	private String firstname;
 	private String email;
 	private Date createdAt;
 
 	// Getter /setter
+	public EmailVO() {
+		
+	}
 
 	public EmailVO(Long no, String last_name, String first_name, String email, Date createdAt) {
 		this.no = no;
-		this.last_name = last_name;
-		this.first_name = first_name;
+		this.lastname = last_name;
+		this.firstname = first_name;
 		this.email = email;
 		this.createdAt = createdAt;
 	}
@@ -29,20 +32,20 @@ public class EmailVO {
 		this.no = no;
 	}
 
-	public String getLast_name() {
-		return last_name;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setLastname(String last_name) {
+		this.lastname = last_name;
 	}
 
-	public String getFirst_name() {
-		return first_name;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstname(String first_name) {
+		this.firstname = first_name;
 	}
 
 	public String getEmail() {
@@ -63,7 +66,7 @@ public class EmailVO {
 
 	@Override
 	public String toString() {
-		return "EmailVO [no=" + no + ", last_name=" + last_name + ", first_name=" + first_name + ", email=" + email
+		return "EmailVO [no=" + no + ", last_name=" + lastname + ", first_name=" + firstname + ", email=" + email
 				+ ", createdAt=" + createdAt + "]";
 	}
 
