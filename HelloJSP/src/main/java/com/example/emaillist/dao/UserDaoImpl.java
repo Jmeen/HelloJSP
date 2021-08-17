@@ -53,11 +53,9 @@ public class UserDaoImpl implements UserDao {
 				vo.setEmail(email_str);
 				vo.setGender(gender);
 				System.out.println("User  Found" + vo);
-
 			} else {
 				System.out.println("User Not Found");
 			}
-
 		} catch (Exception e) {
 			// TODO: handle exception
 		} finally {
@@ -69,14 +67,40 @@ public class UserDaoImpl implements UserDao {
 				e.printStackTrace();
 			}
 		}
-
 		return vo;
 	}
 
 	@Override
 	public int insert(UserVo vo) {
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int Insertedcount = 0;
+
+		try {
+			conn = getConnection();
+			String sql = "INSERT INTO USERS(no, name, pasword, email, gender) Values(seq_users_pk.nextval, ?, ?, ? ,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getPassword());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setString(4, vo.getGender());
+
+			Insertedcount = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		// TODO Auto-generated method stub
-		return 0;
+		return Insertedcount;
 	}
 
 }
