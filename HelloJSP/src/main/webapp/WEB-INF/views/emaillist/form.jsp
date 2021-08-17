@@ -11,8 +11,9 @@
 	<p>메일링 리스트에 가입하려면<br> 
 	아래 항목을 기입하고 등록 버튼을 눌러 주세요</p>
 	<!-- action : 요청을 처리할 페이지(서블릿/jsp) 메서드 : 요청방식 -->
-	<form action="<%=request.getContextPath()%>/emaillist/insert.jsp"
-		method="post">
+	<form action="<%=request.getContextPath()%>/el"	method="post">
+		<!-- hidden은 사용자 입력은 아니지만 전송해야할 데이터 -->
+		<input type="hidden" value="add" name="a"/>
 		<label for="Last_name">성</label> 
 		<input type="text" name="last_name"	id="Last_name"><br>
 		<label for="First_name">이름</label> 
@@ -24,7 +25,7 @@
 	</form>
 	<!-- 리스트로 돌아가기 -->
 	<p>
-		<a href="<%=request.getContextPath()%>/emaillist/">목록 보기</a>
+		<a href="<%=request.getContextPath()%>/el/">목록 보기</a>
 	</p>
 </body>
 </html>
