@@ -52,7 +52,32 @@ public class EmaillistServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String actionName = req.getParameter("a");
 		if ("add".equals(actionName)) {
+			String firstName = req.getParameter("first_name");
+			String lastName = req.getParameter("last_name");
+			String email = req.getParameter("email");
+
+			// vo 객체 생성
+			EmailVO vo = new EmailVO();
+			vo.setLastname(lastName);
+			vo.setFirstname(firstName);
+			vo.setEmail(email);
+
 			// insert 처리
+			EmaillistDao dao = new EmaillistDaoImpl();
+			int insertedcount = dao.insert(vo);
+
+			// 처리 후 list페이지로 redirect
+			resp.sendRedirect(req.getContextPath() + "/el");
+
+		} else if ("delete".equals(actionName)) {
+			// a = delete면
+			
+			Long no = Long.valueOf(req.getParameter("no"));
+			EmaillistDao dao = new EmaillistDaoImpl();
+			int deletedcount = dao.delete(no);
+			// 리스트 페이지로 리다이렉트
+			resp.sendRedirect(req.getContextPath() + "/el");
+
 		} else {
 			doGet(req, resp);
 		}
