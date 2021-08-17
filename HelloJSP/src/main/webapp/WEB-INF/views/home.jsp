@@ -9,6 +9,10 @@
 <body>
 	<h3>Hello, HTML</h3>
 	<p>이것은 Jaemin이 만든 첫번째 HTML입니다.</p>
+	
+	<ul>
+		<li><a href="<%=request.getContextPath() %>/users?a=joinform">회원가입</a></li>
+	</ul>
 
 	<H4>GET 전송</H4>
 	<!--  
@@ -23,12 +27,12 @@
 	<H4>POST 전송</H4>
 	<!-- 사용자 입력 데이터 전송을 위한 form tag -->
 	<form action="hs" method="POST">
-		<label for="Last_name"> 성 </label> <input type="text" name="Last_name"
-			id="Last_name" /><br /> <label for="First_name">이름</label> <input
-			type="text" name="First_name" id="First_name" /><br /> <input
-			type="submit" value="전송" />
+		<label for="Last_name"> 성 </label> 
+		<input type="text" name="Last_name"	id="Last_name" /><br /> 
+		<label for="First_name">이름</label> 
+		<input type="text" name="First_name" id="First_name" /><br /> 
+		<input type="submit" value="전송" />
 	</form>
-
 
 	<H3> Emaillist (model 1)</H3>
 	<p>
