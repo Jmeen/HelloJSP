@@ -14,7 +14,7 @@ public class UserDaoImpl implements UserDao {
 	private Connection getConnection() throws SQLException {
 		Connection conn = null;
 		try {
-			Class.forName("oracle.jdbc.dirver.OracleDriver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			// connection 얻기
 			String dburl = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 			conn = DriverManager.getConnection(dburl, "C##BITUSER", "bituser");
@@ -26,7 +26,7 @@ public class UserDaoImpl implements UserDao {
 
 	// 르그인용
 	@Override
-	public UserVo getUserByEmailandPassworkd(String email, String password) {
+	public UserVo getUserByEmailandPassword(String email, String password) {
 		UserVo vo = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -79,7 +79,7 @@ public class UserDaoImpl implements UserDao {
 
 		try {
 			conn = getConnection();
-			String sql = "INSERT INTO USERS(no, name, pasword, email, gender) Values(seq_users_pk.nextval, ?, ?, ? ,?)";
+			String sql = "INSERT INTO USERS(no, name, password, email, gender) Values(seq_users_pk.nextval, ?, ?, ? ,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getName());
 			pstmt.setString(2, vo.getPassword());
