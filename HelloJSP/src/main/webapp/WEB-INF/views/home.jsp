@@ -37,5 +37,7 @@
 	<h4> Emaillist (Model 2:MVC)</h4>
 	<p><a href="/web/el">이메일 리스트 (Model 2)</a>
 	
+	<h4>Cookie Test</h4>
+	<p><a href="<%=request.getContextPath() %>/cookies">쿠키테스트</a>	
 <!--  정적 페이지 include -->
 <%@ include file ="/WEB-INF/views/Includes/footer.jsp" %>
