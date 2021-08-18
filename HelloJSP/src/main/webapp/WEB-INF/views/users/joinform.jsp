@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>MyHome : Join Form</title>
-</head>
-<body>
-	<h1>Join Form</h1>
+    
+<jsp:include page="/WEB-INF/views/Includes/header.jsp">
+	<jsp:param value="회원가입페이지" name="message"/></jsp:include>
+	
+	
 		<form method="POST" action="<%= request.getContextPath() %>/users">
 		<input type="hidden" name="a" value="join">
 		<label for="name">이름<label>
@@ -18,9 +15,8 @@
 			<input type="text" name="email" id= "email"/><br/>
 		<label for="password">성별</label>
 			<input type="radio" name="gender" value="F" checked/>여성
-			<input type="radio" name="gender" value="M"/><br/>남성
+			<input type="radio" name="gender" value="M"/>남성<br/>
 		<input type="submit" value="가입"/>
 		</form>
-
-</body>
-</html>
+		
+<%@ include file ="/WEB-INF/views/Includes/footer.jsp" %>

@@ -1,15 +1,8 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Hello HTML</title>
-</head>
-<body>
-	<h3>Hello, HTML</h3>
-	<p>이것은 Jaemin이 만든 첫번째 HTML입니다.</p>
-	
+<!-- Include할때 상단 정보 통일할 것. -->
+<!-- 동적 페이지 Include -->
+<jsp:include page="/WEB-INF/views/Includes/header.jsp">
+	<jsp:param value="메인페이지" name="message"/></jsp:include>
 	
 	<ul>
 		<li><a href="<%=request.getContextPath() %>/users?a=joinform">회원가입</a></li>
@@ -43,5 +36,6 @@
 	
 	<h4> Emaillist (Model 2:MVC)</h4>
 	<p><a href="/web/el">이메일 리스트 (Model 2)</a>
-</body>
-</html>
+	
+<!--  정적 페이지 include -->
+<%@ include file ="/WEB-INF/views/Includes/footer.jsp" %>

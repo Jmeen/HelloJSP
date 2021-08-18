@@ -1,16 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>MyHome : Join Success</title>
-</head>
-<body>
-	<h1>Join Success</h1>
-	<p> 가입에 성공하였습니다.</p>
+<jsp:include page="/WEB-INF/views/Includes/header.jsp">
+	<jsp:param value="가입에 성공하셧습니다." name="message"/></jsp:include>
+
 	
 	<a href="<%=request.getContextPath() %>">메인홈으로</a> 
 
-</body>
-</html>
+<%@ include file ="/WEB-INF/views/Includes/footer.jsp" %>
