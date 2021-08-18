@@ -4,10 +4,7 @@
 <jsp:include page="/WEB-INF/views/Includes/header.jsp">
 	<jsp:param value="메인페이지" name="message"/></jsp:include>
 	
-	<ul>
-		<li><a href="<%=request.getContextPath() %>/users?a=joinform">회원가입</a></li>
-		<li><a href="<%=request.getContextPath() %>/users?a=loginform">로그인</a></li>
-	</ul>
+
 
 	<H4>GET 전송</H4>
 	<!--  

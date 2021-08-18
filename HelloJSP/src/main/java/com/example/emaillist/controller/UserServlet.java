@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import com.example.emaillist.dao.UserDao;
 import com.example.emaillist.dao.UserDaoImpl;
@@ -34,6 +36,15 @@ public class UserServlet extends HttpServlet {
 
 			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/users/loginform.jsp");
 			rd.forward(req, resp);
+
+		} else if ("logout".equals(actionName)) {
+			// a= logout
+			// 세션 객체 삭제
+			HttpSession session = req.getSession(false);
+			session.removeAttribute("authUser");
+			session.invalidate();
+			//리다이렉트
+			resp.sendRedirect(req.getContextPath());
 
 		} else {
 			resp.sendError(404); // page not found
@@ -86,6 +97,12 @@ public class UserServlet extends HttpServlet {
 			} else {
 				// 사용자 찾음
 				System.out.print("사용자 찾음");
+
+				// 사용자 정보를 서버에 기록 (세션)
+				HttpSession session = req.getSession(true);
+				// 객체를 세션에 저장
+				session.setAttribute("authUser", vo);
+
 				// 홈페이지로 리다이렉트
 				resp.sendRedirect(req.getContextPath());
 			}
